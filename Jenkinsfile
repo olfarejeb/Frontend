@@ -14,7 +14,7 @@ pipeline {
         }
     stage("Test") {
         steps {
-        sh "sonar-scanner " 
+          sh "npm run sonar" 
       }
     } 
     stage('Build docker image'){
