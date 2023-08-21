@@ -3,6 +3,7 @@ pipeline {
   environment {
       DOCKERHUB_CREDENTIALS = credentials('DockerHub')
       frontendImageTag = "${BUILD_NUMBER}"
+      VERSION = "${env.BUILD_ID}"
   }
   stages{
     stage("Npm Install") {
