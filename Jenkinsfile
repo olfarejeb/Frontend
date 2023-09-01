@@ -13,7 +13,7 @@ pipeline {
                 }           
             }
         }
-    stage("Test") {
+    stage("Test"){
         steps {
          sh "npm run sonar" 
       }
@@ -24,15 +24,15 @@ pipeline {
             sh 'docker build --build-arg configuration=production -t olfarejeb/front-ecommerce:${frontendImageTag} .'
         }
     }
-    stage('docker Login & push') {
+    stage('docker Login & push'){
         steps {
               sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
               sh 'docker push olfarejeb/front-ecommerce:${frontendImageTag} '
         }
     }
-    stage('Cleaning up') {
-                steps {
-                    sh "docker rmi olfarejeb/front-ecommerce:$BUILD_NUMBER"
+    stage('Cleaning up'){
+        steps {
+               sh "docker rmi olfarejeb/front-ecommerce:$BUILD_NUMBER"
             }
         }
     stage('deploy k8s'){
