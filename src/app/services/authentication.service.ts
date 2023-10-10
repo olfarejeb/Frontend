@@ -14,7 +14,8 @@ export class AuthenticationService {
   private users=[
     {username:"admin", password:"1234",roles:['USER','ADMIN']},
     {username:"user1", password:"1234",roles:['USER']},
-    {username:"user2", password:"1234",roles:['USER']}
+    {username:"user2", password:"1234",roles:['USER']},
+    {username:"olfa", password:"1234", roles:['USER']}
   ]
 
   constructor(private http:HttpClient) {
